@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-function csrfToken() {
-  const el = document.querySelector('meta[name="csrf-token"]');
-  return el ? el.content : "";
-}
+import { csrfToken } from "../lib/csrf";
 
 export default function Dashboard({ nutritionistId }) {
   const [pendingAppointments, setPendingAppointments] = useState([]);
