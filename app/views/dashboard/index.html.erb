@@ -1,6 +1,5 @@
 <h1>Nutritionist Dashboard</h1>
-<p>Welcome <%= @nutritionist ? @nutritionist.name : "Guest" %></p>
-<p>Pending appointment requests appear below.</p>
+<h2>Welcome <%= @nutritionist ? @nutritionist.name : "Guest" %></h2>
 
 <div id="dashboard-root" data-nutritionist-id="<%= @nutritionist&.id %>" data-nutritionist-name="<%= j @nutritionist&.name %>"></div>
 <div 

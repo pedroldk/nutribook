@@ -33,7 +33,7 @@ export default function Dashboard({ nutritionistId }) {
 
   return (
     <div>
-      <h2>Pending Appointment Requests</h2>
+      <h2>Pending Appointment Requests</h3>
       {pendingAppointments.length === 0 && <div>No pending requests.</div>}
       {pendingAppointments.map((a) => (
         <div key={a.id} style={{ border: "1px solid #ffc107", padding: 10, marginBottom: 8, backgroundColor: "#fff8e1" }}>
@@ -47,7 +47,7 @@ export default function Dashboard({ nutritionistId }) {
         </div>
       ))}
 
-      <h2 style={{ marginTop: 24 }}>Scheduled Appointments</h2>
+      <h3 style={{ marginTop: 24 }}>Scheduled Appointments</h3>
       {scheduledAppointments.length === 0 && <div>No scheduled appointments.</div>}
       {scheduledAppointments.map((a) => (
         <div key={a.id} style={{ border: "1px solid #4caf50", padding: 10, marginBottom: 8, backgroundColor: "#f1f8e9" }}>
