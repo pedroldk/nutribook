@@ -34,6 +34,11 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+# Prevent external Geocoder requests during tests
+require 'geocoder'
+Geocoder.configure(lookup: :test)
+Geocoder::Lookup::Test.add_stub("MyString", [ { 'latitude' => 1.5, 'longitude' => 1.5 } ])
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [

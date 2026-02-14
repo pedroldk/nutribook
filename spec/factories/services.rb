@@ -5,6 +5,6 @@ FactoryBot.define do
     location { "MyString" }
     latitude { 1.5 }
     longitude { 1.5 }
-    nutritionist { nil }
+    association :nutritionist
   end
 end
