@@ -1,10 +1,10 @@
 import React from "react";
+import NutritionistSearch from "./NutritionistSearch";
 
 export default function App() {
   return (
     <div id="nutribook-react">
-      <h1>Hello from React</h1>
-      <p>This is a minimal React integration.</p>
+      <NutritionistSearch />
     </div>
   );
 }

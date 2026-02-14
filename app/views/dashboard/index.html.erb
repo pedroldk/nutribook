@@ -1,4 +1,9 @@
+<h1>Nutritionist Dashboard</h1>
+<p>Welcome <%= @nutritionist ? @nutritionist.name : "Guest" %></p>
+<p>Pending appointment requests appear below.</p>
+
+<div id="dashboard-root" data-nutritionist-id="<%= @nutritionist&.id %>" data-nutritionist-name="<%= j @nutritionist&.name %>"></div>
 <div 
   id="manage-appointments-app" 
-  data-nutritionist-id="<%= params[:nutritionist_id] %>">
+  data-nutritionist-id="<%= @nutritionist&.id %>">
 </div>

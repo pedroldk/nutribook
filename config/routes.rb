@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   # 2. The Public Profile (e.g., /nutritionists/1)
   resources :nutritionists, only: [:index, :show]
+  resources :appointments, only: [:create]
 
   # 3. The Nutritionist Dashboard (e.g., /dashboard/1)
   # We pass the ID so we know WHICH nutritionist is logging in

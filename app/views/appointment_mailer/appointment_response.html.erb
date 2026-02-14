@@ -1,0 +1,4 @@
+<h1>Appointment Request Update</h1>
+<p>Hi <%= @appointment.guest_name %>,</p>
+<p>Your appointment request for <strong><%= @appointment.start_time %></strong> with <%= @appointment.service.name %> (<%= @appointment.service.location %>) was <strong><%= @accepted ? 'accepted' : 'rejected' %></strong>.</p>
+<p>Thank you for using Nutribook.</p>

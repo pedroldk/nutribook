@@ -1,0 +1,7 @@
+Appointment Request Update
+
+Hi <%= @appointment.guest_name %>,
+
+Your appointment request for <%= @appointment.start_time %> with <%= @appointment.service.name %> (<%= @appointment.service.location %>) was <%= @accepted ? 'accepted' : 'rejected' %>.
+
+Thank you for using Nutribook.
