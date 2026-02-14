@@ -16,7 +16,7 @@ module Api
         appts = appts.where(status: params[:status])
       end
 
-      render json: appts.map { |a| appointment_json(a) }
+      render json: appts.map(&:as_api_json)
     end
 
     # PATCH /api/appointments/:id/accept
@@ -43,7 +43,7 @@ module Api
         AppointmentMailer.appointment_response(appointment, accepted: true).deliver_later
       end
 
-      render json: appointment_json(appointment)
+      render json: appointment.as_api_json
     end
 
     # PATCH /api/appointments/:id/reject
@@ -51,24 +51,7 @@ module Api
       appointment = Appointment.find(params[:id])
       appointment.rejected!
       AppointmentMailer.appointment_response(appointment, accepted: false).deliver_later
-      render json: appointment_json(appointment)
-    end
-
-    private
-
-    def appointment_json(a)
-      {
-        id: a.id,
-        guest_name: a.guest_name,
-        guest_email: a.guest_email,
-        start_time: a.start_time,
-        status: a.status,
-        service: {
-          id: a.service.id,
-          name: a.service.name,
-          location: a.service.location
-        }
-      }
+      render json: appointment.as_api_json
     end
   end
 end
