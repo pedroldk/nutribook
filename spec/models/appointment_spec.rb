@@ -1,6 +1,40 @@
 require 'rails_helper'
 
 RSpec.describe Appointment, type: :model do
+  describe 'associations' do
+    it 'belongs to a service' do
+      appointment = FactoryBot.create(:appointment)
+      expect(appointment.service).to be_present
+    end
+  end
+
+  describe 'status enum' do
+    let(:service) { FactoryBot.create(:service) }
+
+    it 'supports pending, accepted, and rejected statuses' do
+      appointment = FactoryBot.create(:appointment, service: service, status: :pending)
+
+      expect(appointment).to be_pending
+
+      appointment.accepted!
+      expect(appointment.reload).to be_accepted
+
+      appointment.rejected!
+      expect(appointment.reload).to be_rejected
+    end
+
+    it 'defaults new appointments to pending when created with status: :pending' do
+      appointment = Appointment.create!(
+        guest_name: "Test",
+        guest_email: "test@example.com",
+        start_time: 1.day.from_now,
+        service: service,
+        status: :pending
+      )
+      expect(appointment.status).to eq("pending")
+    end
+  end
+
   describe '#as_api_json' do
     it 'returns the expected JSON shape including nested service' do
       service = FactoryBot.build_stubbed(:service, name: 'Consult', location: 'Lisbon')

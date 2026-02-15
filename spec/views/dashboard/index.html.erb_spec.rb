@@ -6,7 +6,7 @@ RSpec.describe "dashboard/index.html.erb", type: :view do
     render
 
     expect(rendered).to include('Nutritionist Dashboard')
-    expect(rendered).to include('Welcome Ana')
+    expect(rendered).to include('Welcome, Ana')
     expect(rendered).to include('data-nutritionist-id="42"')
   end
 end
