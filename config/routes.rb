@@ -2,18 +2,17 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # 1. The Home Page (Search)
   root "nutritionists#index"
-  
-  # 2. The Public Profile (e.g., /nutritionists/1)
-  resources :nutritionists, only: [:index, :show]
-  resources :appointments, only: [:create]
 
-  # 3. The Nutritionist Dashboard (e.g., /dashboard/1)
+  resources :nutritionists, only: [ :index ]
+  resources :appointments, only: [ :create ]
+
+  # 2. The Nutritionist Dashboard (e.g., /dashboard/1)
   # We pass the ID so we know WHICH nutritionist is logging in
   get "/dashboard/:nutritionist_id", to: "dashboard#index", as: :nutritionist_dashboard
-  
-  # 4. The API (for React to fetch data)
+
+  # 3. The API (for React to fetch data)
   namespace :api do
-    resources :appointments, only: [:index, :update] do
+    resources :appointments, only: [ :index, :update ] do
       # Custom actions for Accept/Reject
       member do
         patch :accept

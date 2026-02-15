@@ -1,6 +1,6 @@
-include Geocoding
-
 class NutritionistsController < ApplicationController
+  include Geocoding
+
   # Simple search endpoint: responds to HTML and JSON.
   # JSON response returns nutritionists ordered by distance to the provided location.
   def index
