@@ -138,22 +138,44 @@ export default function NutritionistSearch() {
       )}
 
       <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
-        <h3>Schedule appointment</h3>
-        <form onSubmit={submitAppointment}>
+        <h3 className="text-xl font-semibold text-green-800 mb-4">Schedule Appointment</h3>
+        <form onSubmit={submitAppointment} className="space-y-4">
           <div>
-            <label>Name</label>
-            <input required value={guestName} onChange={(e) => setGuestName(e.target.value)} />
+            <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+            <input
+              required
+              value={guestName}
+              onChange={(e) => setGuestName(e.target.value)}
+              className="w-full p-2 border border-green-200 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
           </div>
           <div>
-            <label>Email</label>
-            <input required type="email" value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)} />
+            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input
+              required
+              type="email"
+              value={guestEmail}
+              onChange={(e) => setGuestEmail(e.target.value)}
+              className="w-full p-2 border border-green-200 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
           </div>
           <div>
-            <label>Date & time</label>
-            <input required type="datetime-local" value={startTime} onChange={(e) => setStartTime(e.target.value)} />
+            <label className="block text-sm font-medium text-gray-700 mb-1">Date & time</label>
+            <input
+              required
+              type="datetime-local"
+              value={startTime}
+              onChange={(e) => setStartTime(e.target.value)}
+              className="w-full p-2 border border-green-200 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
           </div>
-          <div style={{ marginTop: 10 }}>
-            <button type="submit">Book</button>
+          <div className="pt-2">
+            <button
+              type="submit"
+              className="w-full bg-orange-200 hover:bg-orange-300 text-orange-900 font-medium py-2 px-6 rounded transition-colors"
+            >
+              Book
+            </button>
           </div>
         </form>
       </Modal>
