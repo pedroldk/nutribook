@@ -7,9 +7,12 @@ module Geocoding
     if location_param =~ /(-?\d+(?:\.\d+)?),\s*(-?\d+(?:\.\d+)?)/
       [ $1.to_f, $2.to_f ]
     else
-      case location_param.to_s.strip.downcase
-      when "braga"
-        braga
+      # Look up coordinates from existing geocoded services in the database
+      match = Service.where("location ILIKE ?", "%#{location_param.strip}%")
+                     .where.not(latitude: nil, longitude: nil)
+                     .first
+      if match
+        [ match.latitude, match.longitude ]
       else
         braga
       end
