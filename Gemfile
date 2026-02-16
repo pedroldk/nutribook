@@ -52,11 +52,11 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   # Testing framework
-  gem 'rspec-rails'
+  gem "rspec-rails"
   # For generating test data
-  gem 'factory_bot_rails'
+  gem "factory_bot_rails"
   # For debugging
-  gem 'pry-rails'
+  gem "pry-rails"
 end
 
 group :development do
