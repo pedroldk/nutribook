@@ -1,5 +1,7 @@
 # Nutribook
 
+![Nutribook](docs/Nutribook.png)
+
 A Ruby on Rails application that connects guests with nutritionists. Guests can search for nutritionists by name, service, or location, schedule appointments, and nutritionists can manage incoming requests through a real-time dashboard built with React.
 
 ## Tech Stack
